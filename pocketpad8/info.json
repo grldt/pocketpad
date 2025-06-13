@@ -1,0 +1,53 @@
+{
+    "keyboard_name": "PocketPad 8",
+    "manufacturer": "grldtmk",
+    "url": "",
+    "maintainer": "grldt",
+    "usb": {
+        "vid": "0x6227",
+        "pid": "0x00A8",
+        "device_version": "0.0.1"
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {
+                   "x":3,
+                   "y":0
+                },
+                {
+                   "x":0,
+                   "y":1.25
+                },
+                {
+                   "x":1,
+                   "y":1.25
+                },
+                {
+                   "x":2,
+                   "y":1.25
+                },
+                {
+                   "x":3,
+                   "y":1.25
+                },
+                {
+                   "x":0,
+                   "y":2.25
+                },
+                {
+                   "x":1,
+                   "y":2.25
+                },
+                {
+                   "x":2,
+                   "y":2.25
+                },
+                {
+                   "x":3,
+                   "y":2.25
+                }
+             ]
+        }
+    }
+}
