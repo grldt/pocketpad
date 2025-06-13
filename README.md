@@ -23,7 +23,7 @@ Here's some images of the macropad, and my hand for scale.
 | <img src="pocketpad8\src\photo1.jpg" width="500"> | <img src="pocketpad8\src\photo2.jpg" width="500"> | <img src="pocketpad8\src\photo3.jpg" width="500"> |
 
 # VIA Configurator
-PocketPad can be configurated with [VIA](https://usevia.app/) (unofficially) by sideloading the [`pocketpad.json`](pocketpad8/keymaps/new/pocketpad8.json) file into the Design tab.
+PocketPad can be configurated with [VIA](https://usevia.app/) (unofficially) by sideloading the [`pocketpad.json`](pocketpad8/keymaps/default/pocketpad8.json) file into the Design tab.
 
 <img src="pocketpad8\src\via.png" width="750">
 
