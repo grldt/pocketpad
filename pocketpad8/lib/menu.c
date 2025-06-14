@@ -17,7 +17,6 @@ typedef union {
 
 user_config_t user_config;
 
-// int setting_layer = 9;
 int v_sel = 0;
 int v_idx = 0;
 int h_sel = 0;
@@ -52,7 +51,6 @@ char menu_lyr [4][22] = {"Layer 0              ",
 char menu_app [3][22] = {"Timer                ",
                          "Dice Roll            ",
                          "Wishing Simulator    "};
-                        //  "Secret Code          "};
 
 // current page = set (settings)
 char menu_set [5][22] = {"Change layer         ",  // lyr
@@ -64,27 +62,14 @@ char menu_set [5][22] = {"Change layer         ",  // lyr
 // current page = chs (choose screen)
 char menu_chs [2][22] = {"Stats                ",
                          "Bongo                "};
-                        //  "Music Bars           "};
-                        //  "Debug                "};
-//add menu here
+//add renders here
 void render_stats(void);
-
 void render_bongo(void);
-
-// void render_mbars(void);
-
 void render_timer(void);
-
 void render_dice(void);
-
 void render_wish(void);
 void start_wish_seed(void);
 
-// void render_secret(void);
-
-// void render_debug(int layer_screen);
-
-// add menu here
 void getLayerScreen(int layer_screen) {
 
     if(app_on) {
@@ -100,9 +85,6 @@ void getLayerScreen(int layer_screen) {
                 render_wish();
                 start_wish_seed();
                 break;
-            case 3:
-                // render_secret();
-                break;
             default:
                 render_timer();
                 break;
@@ -111,20 +93,12 @@ void getLayerScreen(int layer_screen) {
     }
 
     switch(layer_screen) {
-        // screen
         case 0:
             render_stats();
             break;
         case 1:
             render_bongo();
             break;
-        // case 2:
-        //     render_mbars();
-        //     break;
-        // case 3:
-        //     render_debug(layer_screen);
-        //     break;
-
         default:
             render_stats();
             break;
@@ -166,15 +140,12 @@ void menu_setting(void) {
     t_line = sizeof(menu_set) / sizeof(menu_set[0]);
 
     strcpy(c_page, "set");
-    //             123456789012345678901
-    // strcpy(line0, "Settings:            ");
+    
     strcpy(line0, "Menu:                ");
 
     if(v_idx == 0) {
-        //           ---------------------
         sprintf(up, "                     ");
     } else {
-        //            ---------------------
         sprintf(up, "                    %c", 30);
     }
     strcpy(line1, up);
@@ -182,10 +153,8 @@ void menu_setting(void) {
     strcpy(line2, menu_set[v_idx]);
 
     if(v_idx+1 == t_line) {
-        //           ---------------------
         sprintf(dn, "                     ");
     } else {
-        //            ---------------------
         sprintf(dn, "                    %c", 31);
     }
     strcpy(line3, dn);
@@ -195,16 +164,13 @@ void menu_layers(void) {
     t_line = sizeof(menu_lyr) / sizeof(menu_lyr[0]);
 
     strcpy(c_page, "lyr");
-    //             123456789012345678901
-    //            ---------------------
+    
     sprintf(up, "%c Change layer to:   ", 17);
     strcpy(line0, up);
 
     if(v_idx == 0) {
-        //           ---------------------
         sprintf(up, "                     ");
     } else {
-        //            ---------------------
         sprintf(up, "                    %c", 30);
     }
     strcpy(line1, up);
@@ -212,10 +178,8 @@ void menu_layers(void) {
     strcpy(line2, menu_lyr[v_idx]);
 
     if(v_idx+1 == t_line) {
-        //           ---------------------
         sprintf(dn, "                     ");
     } else {
-        //            ---------------------
         sprintf(dn, "                    %c", 31);
     }
     strcpy(line3, dn);
@@ -226,15 +190,12 @@ void menu_apps(void) {
 
     strcpy(c_page, "app");
     strcpy(line0, "Choose app:          ");
-    //             123456789012345678901
     sprintf(up, "%c Choose app:        ", 17);
     strcpy(line0, up);
 
     if(v_idx == 0) {
-        //           ---------------------
         sprintf(up, "                     ");
     } else {
-        //           ---------------------
         sprintf(up, "                    %c", 30);
     }
     strcpy(line1, up);
@@ -242,10 +203,8 @@ void menu_apps(void) {
     strcpy(line2, menu_app[v_idx]);
 
     if(v_idx+1 == t_line) {
-        //           ---------------------
         sprintf(dn, "                     ");
     } else {
-        //           ---------------------
         sprintf(dn, "                    %c", 31);
     }
     strcpy(line3, dn);
@@ -254,8 +213,7 @@ void menu_apps(void) {
 int about_content(int idx) {
 
     switch(idx) {
-        case 0:          //123456789012345678901
-            //             ---------------------
+        case 0:
             strcpy(line1, "Board Name:          ");
             strcpy(line2, "PocketPad by grldtmk ");
             break;
@@ -270,7 +228,6 @@ int about_content(int idx) {
         default:
             break;
     }
-
     return 3;
 }
 
@@ -279,22 +236,15 @@ void about_screen(void) {
     strcpy(c_page, "abt");
 
     if(v_idx == 0) {
-        //            123456789012345678901
         sprintf(up, "%c About              ", 17);
     } else {
-        //            123456789012345678901
-        //            ---------------------
         sprintf(up, "%c About             %c", 17, 30);
     }
     strcpy(line0, up);
 
     if(v_idx+1 == t_line) {
-        //           123456789012345678901
-        //           ---------------------
         sprintf(dn, "                     ");
     } else {
-        //           123456789012345678901
-        //           ---------------------
         sprintf(dn, "                    %c", 31);
     }
     strcpy(line3, dn);
@@ -303,18 +253,13 @@ void about_screen(void) {
 void menu_choose_screen(void) {
     t_line = sizeof(menu_chs) / sizeof(menu_chs[0]);
     strcpy(c_page, "chs");
-    //             123456789012345678901
-    //            ---------------------
+    
     sprintf(up, "%c Choose screen:     ", 17);
     strcpy(line0, up);
 
     if(v_idx == 0) {
-
-        //           ---------------------
         sprintf(up, "                     ");
     } else {
-        //           123456789012345678901
-        //           ---------------------
         sprintf(up, "                    %c", 30);
     }
     strcpy(line1, up);
@@ -322,10 +267,8 @@ void menu_choose_screen(void) {
     strcpy(line2, menu_chs[v_idx]);
 
     if(v_idx+1 == t_line) {
-        //           ---------------------
         sprintf(dn, "                     ");
     } else {
-        //           ---------------------
         sprintf(dn, "                    %c", 31);
     }
     strcpy(line3, dn);
@@ -342,7 +285,6 @@ void bootloader_screen(void) {
         sprintf(up, "                     ");
         strcpy(line1, up);
 
-
         if(h_idx == 0) {
             sprintf(up, "%c No           Yes   ", 16);
         } else if (h_idx == 1) {
@@ -356,7 +298,6 @@ void bootloader_screen(void) {
 }
 
 void render_menu(void) {
-    // oled_clear();
     oled_set_cursor(0, 0);
     oled_write(line0, false);
     oled_set_cursor(0, 1);
@@ -412,8 +353,6 @@ void nav_v(bool down) {
 void nav_back(void) {
     if(strcmp(c_page, "set") == 0) {
         init_menu_sel();
-        // layer_move(prev_layer);
-        // prev_layer = 0;
         render_blank();
         oled_clear();
         menu_on = false;
@@ -447,8 +386,6 @@ void nav_back(void) {
         }
         h_idx = 0;
     }
-
-    // init_menu_sel();
 }
 
 void nav_next(void) {
@@ -459,29 +396,19 @@ void nav_next(void) {
 
         switch (v_sel) {
             case 0:
-                // init_menu_sel();
                 strcpy(c_page, "lyr");
-                // render_menu();
                 break;
             case 1:
-                // init_menu_sel();
                 strcpy(c_page, "app");
-                // render_menu();
                 break;
             case 2:
-                // init_menu_sel();
                 strcpy(c_page, "chs");
-                // render_menu();
                 break;
             case 3:
-                // init_menu_sel();
                 strcpy(c_page, "abt");
-                // render_menu();
                 break;
             case 4:
-                // init_menu_sel();
                 strcpy(c_page, "qkb");
-                // render_menu();
                 break;
             default:
                 break;
@@ -516,7 +443,6 @@ void nav_next(void) {
         strcpy(c_page, "set");
         menu_on = false;
         render_blank();
-        // getLayerScreen(user_config.screen_mode);
         init_menu_sel();
         return;
     }
@@ -536,23 +462,9 @@ void nav_next(void) {
     }
 
     if(strcmp(c_page, "qkb") == 0) {
-        // if(v_sel == 0) {
-        //     is_reset = true;
-        //     reset_timer = timer_read32();
-        //     return;
-        // } else {
-        //     strcpy(c_page, "set");
-        //     init_menu_sel();
-        //     menu_on = false;
-        //     render_blank();
-        //     getLayerScreen(user_config.screen_mode);
-        //     return;
-        // }
-
         if(h_sel == 0) {
             h_idx = 1;
         } else if(h_sel == 1) {
-            //             123456789012345678901
             strcpy(line0, "   Bootloader Mode   ");
             strcpy(line1, "---------------------");
             strcpy(line2, "Waiting for new firm-");
@@ -588,14 +500,12 @@ bool process_record_menu(uint16_t keycode, keyrecord_t *record) {
     if(record->event.pressed && menu_on) {
 
         if(keycode == KC_LEFT || keycode == KC_ESC || (krow == 2 && kcol == 0) ) { // back
-            // back
-            nav_back();
+            nav_back(); // back
             return false;
         }
 
         if(keycode == KC_ENTER || keycode == KC_RIGHT || (krow == 2 && kcol == 2)) { // ok
-            // ok
-            nav_next();
+            nav_next(); // ok
             return false;
         }
 
@@ -642,11 +552,6 @@ void keyboard_post_init_menu(void) {
 
     // Read the user config from EEPROM
     user_config.raw = eeconfig_read_user();
-    //            ---------------------
-    // sprintf(lf, "%c                    ", 17);
-    // sprintf(ul, "%c%c                   ", 17, 30);
-    // sprintf(up, "%c                    ", 30);
-    // sprintf(dn, "%c                    ", 31);
     init_menu_sel();
     strcpy(c_page, "set");
 }
